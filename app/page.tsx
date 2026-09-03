@@ -9,6 +9,7 @@ import { Skills } from "@/components/skills"
 import { SideNavigation } from "@/components/navigation"
 import { CommandPalette } from "@/components/command-palette"
 import { Footer } from "@/components/footer"
+import FaultyTerminal from "@/components/faulty-terminal"
 
 const sections = [
   { id: "home", label: "HOME", shortcut: "01" },
@@ -64,24 +65,43 @@ export default function Home() {
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground">
-      <SideNavigation
-        sections={sections}
-        activeIndex={activeIndex}
-        onNavigate={navigateTo}
-      />
+    <div className="relative min-h-screen bg-background text-foreground selection:bg-accent selection:text-accent-foreground overflow-x-hidden">
+      {/* Interactive Cyber FaultyTerminal WebGL Canvas Background */}
+      <div className="fixed inset-0 pointer-events-none z-0 opacity-40 dark:opacity-30">
+        <FaultyTerminal
+          scale={1.5}
+          digitSize={1.2}
+          timeScale={0.4}
+          scanlineIntensity={0.3}
+          curvature={0.08}
+          tint="#FF334E"
+          mouseReact
+          mouseStrength={0.4}
+          pageLoadAnimation
+          noiseAmp={0.8}
+          brightness={0.7}
+        />
+      </div>
 
-      <main className="pt-16 max-w-7xl mx-auto px-4 md:px-8 space-y-8 pb-16">
-        <Hero onNavigate={navigateTo} />
-        <Projects />
-        <Skills />
-        <Education />
-        <Contact />
-      </main>
+      <div className="relative z-10">
+        <SideNavigation
+          sections={sections}
+          activeIndex={activeIndex}
+          onNavigate={navigateTo}
+        />
 
-      <Footer />
+        <main className="pt-16 max-w-7xl mx-auto px-4 md:px-8 space-y-8 pb-16">
+          <Hero onNavigate={navigateTo} />
+          <Projects />
+          <Skills />
+          <Education />
+          <Contact />
+        </main>
 
-      <CommandPalette sections={sections} onNavigate={navigateTo} />
+        <Footer />
+
+        <CommandPalette sections={sections} onNavigate={navigateTo} />
+      </div>
     </div>
   )
 }
