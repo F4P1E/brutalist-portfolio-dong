@@ -17,7 +17,9 @@ import {
   Trophy,
   type LucideIcon,
 } from "lucide-react"
-import { useState } from "react"
+import { useState, useRef } from "react"
+import { PlugConnectedIcon } from "@/components/ui/plug-connected-icon"
+import type { AnimatedIconHandle } from "@/components/ui/types"
 
 type ContactLink = {
   label: string
@@ -85,6 +87,7 @@ const proofLinks: ContactLink[] = [
 ]
 
 export function Contact() {
+  const plugIconRef = useRef<AnimatedIconHandle>(null)
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -156,8 +159,8 @@ export function Contact() {
     <section id="contact" className="scroll-mt-20">
       <div className="container mx-auto px-4 py-12 md:py-16">
         <div className="mb-6 md:mb-8">
-          <div className="border-2 border-foreground p-2 inline-block rounded-xl">
-            <h2 className="font-mono text-2xl md:text-4xl font-bold">{">"} CONTACT</h2>
+          <div className="border border-border/60 bg-card/70 backdrop-blur-md px-3 py-1.5 inline-block rounded-xl shadow-sm">
+            <h2 className="font-mono text-xl md:text-3xl font-bold tracking-tight text-foreground">{">"} CONTACT</h2>
           </div>
           <p className="mt-3 font-mono text-xs md:text-sm text-muted-foreground max-w-3xl leading-relaxed">
             Fast paths for recruiters and collaborators. LinkedIn and email are the cleanest ways to start a conversation.
@@ -166,45 +169,45 @@ export function Contact() {
 
         <div className="grid lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] gap-5 md:gap-6">
           <div className="space-y-5">
-            <article className="border-2 md:border-4 border-foreground bg-card p-4 md:p-5 rounded-2xl">
-              <div className="flex items-center gap-2 border-b-2 border-foreground pb-3 mb-4">
+            <article className="border border-border/50 bg-card/75 backdrop-blur-xl p-5 md:p-6 rounded-2xl shadow-lg">
+              <div className="flex items-center gap-2 border-b border-border/30 pb-3 mb-4">
                 <MessageSquare className="h-4 w-4 text-accent" aria-hidden="true" />
-                <h3 className="font-mono text-lg md:text-xl font-bold">HIRING SNAPSHOT</h3>
+                <h3 className="font-mono text-lg font-bold text-foreground">HIRING SNAPSHOT</h3>
               </div>
 
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 {hiringSignals.map(({ label, value, Icon }) => (
-                  <div key={label} className="border-2 border-foreground bg-card p-3 rounded-xl hover:shadow-[3px_3px_0_0_var(--foreground)] transition-all">
-                    <div className="flex items-center gap-2 text-muted-foreground mb-1">
-                      <div className="h-6 w-6 rounded-md bg-secondary border border-foreground flex items-center justify-center shrink-0">
-                        <Icon className="h-3.5 w-3.5 text-accent" />
+                  <div key={label} className="border border-border/40 bg-secondary/25 backdrop-blur-md p-3.5 rounded-xl hover:bg-secondary/40 transition-all shadow-sm">
+                    <div className="flex items-center gap-2.5 text-muted-foreground mb-1.5">
+                      <div className="h-7 w-7 rounded-lg bg-background/80 border border-border/40 flex items-center justify-center shrink-0 shadow-sm text-accent">
+                        <Icon className="h-3.5 w-3.5" />
                       </div>
-                      <span className="font-mono text-[10px] font-bold uppercase">{label}</span>
+                      <span className="font-mono text-[10px] font-bold uppercase tracking-wider">{label}</span>
                     </div>
-                    <p className="text-xs font-bold pl-8">{value}</p>
+                    <p className="text-xs font-bold pl-9 text-foreground">{value}</p>
                   </div>
                 ))}
               </div>
             </article>
 
-            <article className="border-2 md:border-4 border-foreground bg-card p-4 md:p-5 rounded-2xl">
-              <h3 className="font-mono text-lg md:text-xl font-bold border-b-2 border-foreground pb-3 mb-4">
+            <article className="border border-border/50 bg-card/75 backdrop-blur-xl p-5 md:p-6 rounded-2xl shadow-lg">
+              <h3 className="font-mono text-lg font-bold border-b border-border/30 pb-3 mb-4 text-foreground">
                 DIRECT LINKS
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">{primaryLinks.map(renderLink)}</div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">{primaryLinks.map(renderLink)}</div>
             </article>
 
-            <article className="border-2 border-foreground bg-secondary p-4 rounded-2xl">
-              <h3 className="font-mono text-sm font-bold border-b-2 border-foreground pb-2 mb-3">
+            <article className="border border-border/50 bg-secondary/30 backdrop-blur-xl p-5 rounded-2xl shadow-sm">
+              <h3 className="font-mono text-sm font-bold border-b border-border/30 pb-2 mb-3 text-foreground">
                 PRODUCT PROOF
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2">{proofLinks.map(renderLink)}</div>
+              <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-2.5">{proofLinks.map(renderLink)}</div>
             </article>
           </div>
 
-          <div className="border-2 md:border-4 border-foreground p-4 md:p-6 bg-card h-fit rounded-2xl">
-            <div className="flex items-center justify-between gap-3 border-b-2 border-foreground pb-3 mb-4">
-              <h3 className="font-mono text-lg md:text-xl font-bold">SEND MESSAGE</h3>
+          <div className="border border-border/50 bg-card/75 backdrop-blur-xl p-5 md:p-7 h-fit rounded-2xl shadow-lg">
+            <div className="flex items-center justify-between gap-3 border-b border-border/30 pb-3 mb-4">
+              <h3 className="font-mono text-lg font-bold text-foreground">SEND MESSAGE</h3>
               <Mail className="h-4 w-4 text-accent" aria-hidden="true" />
             </div>
 
@@ -286,10 +289,16 @@ export function Contact() {
               <button
                 type="submit"
                 disabled={status === "loading"}
-                className="w-full inline-flex items-center justify-center gap-2 border-2 border-foreground p-2.5 font-mono text-sm font-bold bg-accent text-accent-foreground hover:bg-foreground hover:text-background transition-all rounded-lg shadow-[2px_2px_0_0_var(--foreground)] hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+                onMouseEnter={() => plugIconRef.current?.startAnimation()}
+                onMouseLeave={() => plugIconRef.current?.stopAnimation()}
+                className="w-full inline-flex items-center justify-center gap-2.5 border border-accent/40 p-3 font-mono text-sm font-bold bg-accent text-accent-foreground hover:bg-foreground hover:text-background transition-all rounded-xl shadow-md hover:scale-[1.01] disabled:opacity-50 disabled:cursor-not-allowed group cursor-pointer"
               >
-                <Send className="h-4 w-4" aria-hidden="true" />
-                {status === "loading" ? "SENDING..." : "SEND MESSAGE"}
+                <PlugConnectedIcon
+                  ref={plugIconRef}
+                  size={18}
+                  className="transition-transform group-hover:scale-110"
+                />
+                {status === "loading" ? "SENDING..." : "CONNECT & SEND MESSAGE"}
               </button>
             </form>
           </div>
