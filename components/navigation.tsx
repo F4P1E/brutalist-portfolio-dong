@@ -64,7 +64,7 @@ export function SideNavigation({
   if (!mounted) return null
 
   return (
-    <header className="fixed top-0 left-0 right-0 h-16 border-b-2 border-foreground bg-background/95 backdrop-blur-md z-50">
+    <header className="fixed top-0 left-0 right-0 h-16 border-b border-border/40 bg-background/80 backdrop-blur-xl z-50 transition-colors">
       <div className="max-w-7xl mx-auto h-full px-4 md:px-8 flex items-center justify-between gap-4">
         {/* Brand logo */}
         <div 
@@ -74,25 +74,25 @@ export function SideNavigation({
           <img
             src="/logo_banner/DuongPhuDong_Logo.jpg"
             alt="Duong Phu Dong Logo"
-            className="h-8 w-8 rounded-lg border-2 border-foreground object-cover shadow-[1px_1px_0_0_var(--foreground)]"
+            className="h-8 w-8 rounded-lg border border-border/60 object-cover shadow-sm ring-1 ring-accent/30"
           />
-          <span className="bg-foreground text-background px-2 py-0.5 text-xs font-black rounded-md">DEV</span>
+          <span className="bg-accent text-accent-foreground px-2 py-0.5 text-xs font-black rounded-md">DEV</span>
           <span className="hidden sm:inline font-bold">DUONG PHU DONG</span>
           <span className="inline sm:hidden font-bold">DONG.DEV</span>
         </div>
 
         {/* Desktop Direct Nav Links */}
-        <nav className="hidden md:flex items-center gap-1 font-mono text-xs">
+        <nav className="hidden md:flex items-center gap-1.5 font-mono text-xs p-1 bg-secondary/30 rounded-xl border border-border/30 backdrop-blur-md">
           {sections.map((section, index) => {
             const isActive = activeIndex === index
             return (
               <button
                 key={section.id}
                 onClick={() => handleScrollTo(section.id, index)}
-                className={`px-3 py-1.5 font-bold transition-all rounded-md ${
+                className={`px-3.5 py-1.5 font-bold transition-all rounded-lg ${
                   isActive
-                    ? "bg-foreground text-background shadow-[2px_2px_0_0_var(--foreground)]"
-                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/70"
+                    ? "bg-foreground text-background shadow-md"
+                    : "text-muted-foreground hover:text-foreground hover:bg-secondary/50"
                 }`}
               >
                 {section.label}
@@ -106,7 +106,7 @@ export function SideNavigation({
           {/* Theme button */}
           <button
             onClick={toggleTheme}
-            className="h-9 w-9 border-2 border-foreground bg-background hover:bg-secondary rounded-lg flex items-center justify-center transition-all shadow-[1px_1px_0_0_var(--foreground)]"
+            className="h-9 w-9 border border-border/60 bg-card/80 hover:bg-secondary/70 backdrop-blur-md rounded-xl flex items-center justify-center transition-all shadow-sm"
             title="Toggle Theme"
             aria-label="Toggle Theme"
           >
