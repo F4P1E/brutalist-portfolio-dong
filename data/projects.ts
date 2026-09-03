@@ -52,30 +52,90 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    title: "QMD-TECH",
+    category: "E-COMMERCE / WEB APP",
+    year: "2026 (Now Building)",
+    description:
+      "A modern high-performance e-commerce platform specializing in computer components, hardware retail, and an interactive Custom PC Builder engine with real-time part compatibility checking.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Database Design", "E-Commerce", "PC Configurator"],
+    link: "",
+    github: "https://github.com/DongDuong2001/qmd-tech",
+    highlighted: true,
+    role: "Full-Stack Engineer / Lead Architect",
+    proof: "Active Development (Deploying Next Month)",
+    recruiterTakeaway: "Architecting a complex hardware catalog and custom PC configurator with compatibility validation logic and modern e-commerce checkout flows.",
+    stage: "now-building",
+    contributors: [
+      { name: "Duong Phu Dong (@DongDuong2001)", github: "https://github.com/DongDuong2001" },
+      { name: "Screan1k0 (@Screan1k0)", github: "https://github.com/Screan1k0" },
+    ],
+    kpis: {
+      users: "PC Builders & Gamers",
+      launchTime: "Deploying Oct 2026",
+      coreImpact: "Custom PC Configurator & Store",
+      performance: "Optimized component search & filter",
+    },
+    caseStudy: {
+      problem: "Traditional PC component stores often lack interactive compatibility checks (socket, wattage, form factor) causing ordering errors for custom PC builders.",
+      build: "Constructing a full-stack platform in Next.js & TypeScript featuring a modular hardware compatibility engine, real-time power budget calculation, and catalog management.",
+      result: "Currently in active development with production deployment planned for next month.",
+    },
+  },
+  {
     title: "GEMMA LOCAL API SERVER",
     category: "AI INFRASTRUCTURE",
     year: "2026",
     description:
-      "A professional Python package hosting google/gemma-4-E2B-it locally with FastAPI, Hugging Face Transformers, and CUDA acceleration. Custom built for testing capstone features offline.",
+      "A specialized side project built as internal developer tooling to support RMIT Capstone offline AI testbenches. Packages google/gemma-4-E2B-it locally with FastAPI, Hugging Face Transformers, and CUDA acceleration.",
     tech: ["Python", "FastAPI", "Gemma-4", "CUDA", "PyTorch", "Hugging Face"],
     link: "",
     github: "https://github.com/DongDuong2001/gemma-api-local-host",
-    highlighted: true,
-    role: "AI Developer / Devops",
-    proof: "GitHub Repository (Host Local)",
-    recruiterTakeaway: "Constructed an efficient offline testbench for capstone testing via local Hugging Face quantised runtime.",
+    highlighted: false,
+    role: "Side Project (Capstone Tooling)",
+    proof: "Internal Dev Tooling (Local Testbench)",
+    recruiterTakeaway: "Built an internal microservice enabling the RMIT Capstone team to iterate offline on LLM features with zero cloud token cost and sub-second local latency.",
     stage: "shipped",
     kpis: {
-      users: "Capstone Dev Team",
+      users: "Capstone Project Team",
       launchTime: "1 week",
-      coreImpact: "Offline testing setup",
-      performance: "Quantised 4-bit CUDA",
+      coreImpact: "100% Offline Capstone Testing",
+      performance: "Quantised 4-bit CUDA Runtime",
     },
     caseStudy: {
-      problem: "Testing capstone models online incurred high latencies and token bills.",
-      build: "Configured an E2B FastAPI microservice to load quantization configurations locally.",
-      result: "Achieved seamless offline test cycles for the entire capstone team.",
+      problem: "Testing AI features for the Capstone project directly against cloud APIs was costly, internet-dependent, and slowed down development velocity.",
+      build: "Engineered a local microservice with FastAPI and Hugging Face Transformers to run a quantized Gemma-4 model on local CUDA GPUs with standard OpenAI-compatible endpoints.",
+      result: "Provided a dedicated offline development testbench for the capstone team, eliminating cloud API costs and speeding up feature verification.",
     }
+  },
+  {
+    title: "DEMUSE",
+    category: "PRODUCTIVITY / WEB APP",
+    year: "2026",
+    description:
+      "A smart schedule & lifestyle management application conceptualized by @mthutt and architected & developed by @DongDuong2001. Tracks study schedules, work shifts, meetings, and personal events with live countdown timers and automated overlap conflict detection.",
+    tech: ["Next.js", "TypeScript", "Tailwind CSS", "Time Management", "State Engine"],
+    link: "",
+    github: "https://github.com/PhuDong2001/demuse",
+    highlighted: true,
+    role: "Lead Developer / Architect",
+    proof: "Open Source Collaboration",
+    recruiterTakeaway: "Engineered real-time schedule conflict detection algorithms and countdown state synchronization for students and professionals.",
+    stage: "shipped",
+    contributors: [
+      { name: "Thu Tran (@mthutt)", github: "https://github.com/mthutt" },
+      { name: "Duong Phu Dong (@DongDuong2001)", github: "https://github.com/DongDuong2001" },
+    ],
+    kpis: {
+      users: "Students & Busy Professionals",
+      launchTime: "2026",
+      coreImpact: "Automated Overlap Detection & Countdowns",
+      performance: "Zero-latency schedule validation",
+    },
+    caseStudy: {
+      problem: "Juggling study timetables, fluctuating work shifts, meetings, and personal routines frequently causes double-booking and missed deadlines.",
+      build: "Constructed dynamic scheduling state engine with automated time-window overlap validation, live event countdown trackers, and intuitive daily/weekly timeline views.",
+      result: "Shipped a seamless, conflict-free schedule planner that prevents overlapping commitments and provides clear visual time cues.",
+    },
   },
   {
     title: "FORTIFY KITCHEN",
@@ -92,8 +152,8 @@ export const projects: Project[] = [
     stage: "shipped",
     contributors: [
       { name: "Duong Phu Dong", github: "https://github.com/DongDuong2001" },
-      { name: "Hao Vu", github: "#" },
-      { name: "Thu Tran", github: "#" },
+      { name: "Hao Vu", github: "https://github.com/haovu310" },
+      { name: "Thu Tran", github: "https://github.com/mthutt" },
     ],
     kpis: {
       users: "Beta users",
